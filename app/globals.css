@@ -17,6 +17,10 @@ h5,
 h6 {
   font-weight: 600 !important;
 }
+b,
+strong {
+  font-weight: 700 !important;
+}
 .category {
   font-size: 21px;
   font-weight: 600;
