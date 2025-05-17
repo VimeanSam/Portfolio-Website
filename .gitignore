@@ -1,0 +1,23 @@
+# dependencies
+/node_modules
+
+# next.js build output
+/.next
+
+# production build output
+/out
+
+# debugging and test output
+/coverage
+
+# environment variables
+/.env
+/.env.*
+!/.env.example
+
+# typescript
+*.tsbuildinfo
+
+# misc
+.DS_Store
+*.log

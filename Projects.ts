@@ -1,0 +1,110 @@
+export const projects = [
+  {
+    title: "6CardsGolf",
+    githubLink: "https://github.com/VimeanSam/sixcardsgolf",
+    description:
+      "A real-time multiplayer web version of 6 cards golf card game. I constructed the backend in node.js, organized MongoDB for storage, managed socket.io for player turns, connection, disconnection, designed client interface using React.js, deployed on AWS using NGINX, and develop various card themes using photoshop.",
+    pics: [
+      "golf_1",
+      "golf_2",
+      "golf_3",
+      "golf_4",
+      "golf_5",
+      "golf_6",
+      "golf_7",
+    ],
+    mainpic: "golf_5",
+    skills: "Node.js, Express, React.js, Socket.IO, MongoDB, AWS, NGINX",
+    link: "https://www.sixcardsgolf.site/",
+  },
+  {
+    title: "GatorRenter",
+    githubLink: "https://github.com/VimeanSam/GatorRenter",
+    description:
+      "Zillow-like real-estate rental website group project for Software Engineering term project at SFSU. I worked as a front-end developer and designed some features such as site logo, district view, messaging template, and various user forms using bootstrap, HTML, and CSS.",
+    pics: [
+      "GatorRenter_1",
+      "GatorRenter_2",
+      "GatorRenter_3",
+      "GatorRenter_3b",
+      "GatorRenter_4",
+      "GatorRenter_5",
+      "GatorRenter_6",
+      "GatorRenter_7",
+      "GatorRenter_8",
+      "GatorRenter_9",
+      "GatorRenter_11",
+      "GatorRenter_12",
+      "GatorRenter_13",
+    ],
+    mainpic: "GatorRenter_2",
+    skills: "HTML, CSS, Bootstrap, Node.js, Express, MySQL",
+    link: "",
+  },
+  {
+    title: "Cinemarker",
+    githubLink: "https://github.com/VimeanSam/CineMarker",
+    description:
+      "A movie listing site that allows users to search, bookmark and find information about movies. RAPID API was used as a movie database and Next.js was used to render the client inferface and Vercel platform was utilized for deployment.",
+    pics: ["cine_1", "cine_2", "cine_3", "cine_4", "cine_5"],
+    mainpic: "cine_1",
+    skills: "React.js, Next.js, Vercel",
+    link: "https://cinemarker.vercel.app/",
+  },
+  {
+    title: "2D Tank Game",
+    githubLink: "https://github.com/VimeanSam/Tank-Game",
+    description:
+      "A 2-players 2D tank game for Software Development term project written in Java. Each tanks have 3 lives and can shoot infinitely and the game is over when one player has a life of 0. A tank can shoot through a specific type of wall and can be healed by a medkit powerup.",
+    pics: ["tank_1", "tank_2", "tank_3", "tank_4", "tank_5"],
+    mainpic: "tank_1",
+    skills: "Java",
+    link: "",
+  },
+  {
+    title: "REST API",
+    githubLink: "https://github.com/VimeanSam/GatorRenter-District-API-Golang",
+    description:
+      "REST API for districts feature of the GatorRenter software engineering project. This API will return all the popular housing districts in San Francisco when generating a /districts GET resquest, filter out the geographical location by calling /districts/{portion} GET request, and accept query parameter 'lte' to find SF districts that has a distance (in miles) less than or equal to the parameter away from SFSU campus.",
+    pics: ["api_1", "api_2", "api_3"],
+    mainpic: "api_3",
+    skills: "Go",
+    link: "",
+  },
+  {
+    title: "Calculator GUI",
+    githubLink: "https://github.com/VimeanSam/CalculatorGUI",
+    pics: ["calc_1", "calc_2", "calc_3", "calc_4", "calc_5", "calc_6"],
+    description:
+      "An implementation of a calculator that follows mathematical order of operations (PEMDAS) of infix operation to function the Graphical User Interface. This was one of my assignment from software development course.",
+    mainpic: "calc_1",
+    skills: "Java",
+    link: "",
+  },
+  {
+    title: "Interpreter",
+    githubLink: "https://github.com/VimeanSam/The-Interpreter",
+    description:
+      "A mock interpreter of the fake language 'X' using Java for Software Development course assignment. The interpreter is basically a compiler for a made-up ByteCode which has functionality to run an '.x.cod' file extension.",
+    pics: [
+      "interpreter_1",
+      "interpreter_2",
+      "interpreter_3",
+      "interpreter_4",
+      "interpreter_5",
+    ],
+    mainpic: "interpreter_1",
+    skills: "Java",
+    link: "",
+  },
+  {
+    title: "Mock Linux Shell",
+    githubLink: "https://github.com/VimeanSam/Shell",
+    description:
+      "A remake the Linux shell command line using C for Operating Systems course. It is the basic functionality of the Linux shell that accepts Linux command (ls, cd, etc) just like the Linux terminal. Forking, piping, and system calls such as execvp() are being used throughout this project.",
+    pics: ["shell_1", "shell_2", "shell_3"],
+    mainpic: "shell_2",
+    skills: "C, Linux",
+    link: "",
+  },
+];
