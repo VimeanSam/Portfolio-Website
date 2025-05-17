@@ -157,7 +157,7 @@ const Projects: React.FC<projectProps> = ({ color, bg, setSlideshow }) => {
               className="arrow round"
               style={{
                 textDecoration: "none",
-                backgroundColor: `rgb(${bg})`,
+                backgroundColor: `rgb(${color})`,
               }}
               onClick={previousPage}
             >
@@ -181,7 +181,7 @@ const Projects: React.FC<projectProps> = ({ color, bg, setSlideshow }) => {
               className="arrow round"
               style={{
                 textDecoration: "none",
-                backgroundColor: `rgb(${bg})`,
+                backgroundColor: `rgb(${color})`,
               }}
               onClick={nextPage}
             >

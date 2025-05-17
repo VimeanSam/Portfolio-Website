@@ -9,6 +9,10 @@ body {
   background-color: #f1f1f1 !important;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 h1,
 h2,
 h3,
@@ -17,6 +21,7 @@ h5,
 h6 {
   font-weight: 600 !important;
 }
+
 b,
 strong {
   font-weight: 700 !important;

@@ -6,12 +6,16 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
 import { Lightbox } from "yet-another-react-lightbox";
+import { Zoom } from "yet-another-react-lightbox/plugins";
+
 import "yet-another-react-lightbox/styles.css";
 
 export default function Home() {
   useEffect(() => {
     tick();
   }, []);
+
+  const breakpoints = [3840, 1920, 1080, 640, 384, 256, 128];
 
   const [data, setData] = useState({
     colorTheme: "",
@@ -23,6 +27,16 @@ export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = useState(false);
   const [slides, setSlides] = useState<object[]>([]);
+  const [animationDuration, setAnimationDuration] = useState(200);
+  const [maxZoomPixelRatio, setMaxZoomPixelRatio] = useState(1);
+  const [zoomInMultiplier, setZoomInMultiplier] = useState(2);
+  const [doubleTapDelay, setDoubleTapDelay] = useState(300);
+  const [doubleClickDelay, setDoubleClickDelay] = useState(300);
+  const [doubleClickMaxStops, setDoubleClickMaxStops] = useState(2);
+  const [keyboardMoveDistance, setKeyboardMoveDistance] = useState(50);
+  const [wheelZoomDistanceFactor, setWheelZoomDistanceFactor] = useState(100);
+  const [pinchZoomDistanceFactor, setPinchZoomDistanceFactor] = useState(100);
+  const [scrollToZoom, setScrollToZoom] = useState(false);
 
   const tick = () => {
     var getdate = new Date();
@@ -83,7 +97,25 @@ export default function Home() {
           close={() => setOpen(false)}
           slides={slides.map((pic, index) => ({
             src: `/projectPics/${pic}.jpg`,
+            height: 771,
+            width: 1456,
+            srcSet: [
+              { src: `/projectPics/${pic}.jpg`, width: 2048, height: 1365 },
+            ],
           }))}
+          plugins={[Zoom]}
+          animation={{ zoom: animationDuration }}
+          zoom={{
+            maxZoomPixelRatio,
+            zoomInMultiplier,
+            doubleTapDelay,
+            doubleClickDelay,
+            doubleClickMaxStops,
+            keyboardMoveDistance,
+            wheelZoomDistanceFactor,
+            pinchZoomDistanceFactor,
+            scrollToZoom,
+          }}
         />
       )}
       <br></br>
