@@ -15,10 +15,7 @@ export default function Home() {
     tick();
   }, []);
 
-  const breakpoints = [3840, 1920, 1080, 640, 384, 256, 128];
-
   const [data, setData] = useState({
-    colorTheme: "",
     variant: "",
     backgroundImg: "",
     greet: "",
@@ -43,22 +40,18 @@ export default function Home() {
     var currentTime = getdate.getHours();
     if (currentTime < 12) {
       setData({
-        colorTheme: "#EADCD1",
         variant: "191,98,4",
         greet: "Good Morning,",
         backgroundImg: "Images/sfmorning.jpg",
       });
     } else if (currentTime < 18) {
       setData({
-        colorTheme: "#D5E6F5",
         variant: "4,129,191",
         greet: "Good Afternoon,",
         backgroundImg: "/Images/sfday.jpg",
       });
     } else {
       setData({
-        ...data,
-        colorTheme: "#282c34",
         variant: "0,32,96",
         greet: "Good Evening,",
         backgroundImg: "/Images/sf.jpg",
@@ -83,11 +76,7 @@ export default function Home() {
             <br></br>
             <Education color={data.variant} />
             <br></br>
-            <Projects
-              color={data.variant}
-              bg={data.colorTheme}
-              setSlideshow={setSlideshow}
-            />
+            <Projects color={data.variant} setSlideshow={setSlideshow} />
           </div>
         </div>
       </div>

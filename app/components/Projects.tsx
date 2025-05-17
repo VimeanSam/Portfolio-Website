@@ -9,11 +9,10 @@ import {
 
 interface projectProps {
   color: string;
-  bg: string;
   setSlideshow: (value: Array<any>) => void;
 }
 
-const Projects: React.FC<projectProps> = ({ color, bg, setSlideshow }) => {
+const Projects: React.FC<projectProps> = ({ color, setSlideshow }) => {
   const [page, setPage] = useState(1);
   const [projects, setProjects] = useState<any[]>([]);
   const [start, setStart] = useState(0);
