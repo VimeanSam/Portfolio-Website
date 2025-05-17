@@ -43,7 +43,7 @@ const Experience: React.FC<colorProps> = ({ color }) => {
               uploading, and real-time messaging.
             </li>
             <li>
-              Implement a real-time chat interface in{" "}
+              Implemented a real-time chat interface in{" "}
               <b style={{ color: `rgb(${color})` }}>React Native</b> and{" "}
               <b style={{ color: `rgb(${color})` }}>Firebase</b> for
               notifications which allows users to communicate with one another
@@ -89,7 +89,7 @@ const Experience: React.FC<colorProps> = ({ color }) => {
               <b style={{ color: `rgb(${color})` }}>Stripe</b> API platform.
             </li>
             <li>
-              Traverse across all levels of code stack and produce efficient
+              Traversed across all levels of code stack and produce efficient
               solutions for complex problems.
             </li>
           </ul>

@@ -102,10 +102,10 @@ const Info: React.FC<InfoProps> = ({ color }) => {
             <b> About</b>
           </h2>
           <p style={{ fontSize: "19px" }}>
-            Greetings, my name is Vimean Sam. I am a software engineer with a
-            keen interest in full-stack web development. I am a highly motivated
-            and creative individual who is successful in both individual and
-            team settings.
+            Greetings, my name is Vimean Sam. I am a highly skilled, versatile,
+            and creative individual with an experience in both full stack web
+            and mobile development who is successful in both individual and team
+            settings.
           </p>
           <hr></hr>
           <h2 style={{ marginBottom: "10px" }}>
