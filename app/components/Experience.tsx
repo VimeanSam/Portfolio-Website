@@ -1,102 +1,106 @@
 import { FaBriefcase, FaCalendarAlt } from "react-icons/fa";
+import styles from "./font.module.css";
 
-interface colorProps {
-  color: string;
-}
+const Experience = () => {
+  const parentContainer = {
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    // minHeight: "100dvh",
+    marginBottom: "2em",
+    flexDirection: "column",
+  } as const;
 
-const Experience: React.FC<colorProps> = ({ color }) => {
+  const card = {
+    padding: "1em",
+    backgroundColor: "#1e1e1f",
+    boxShadow: "0 4px 8px 0 rgba(86, 115, 209, 0.2)",
+    transition: "0.3s",
+    borderRadius: "20px",
+    color: "#a1a1aa",
+    border: "1px solid #182755",
+    width: "100%",
+    maxWidth: "1024px",
+  } as const;
+
   return (
-    <div className="cardTab">
-      <div className="zoom-animation">
-        <h2>
-          <span style={{ color: `rgb(${color})` }}>
+    <div style={parentContainer}>
+      <div style={{ marginTop: "1em" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5em",
+          }}
+        >
+          <span
+            style={{
+              color: `#6291f5`,
+              fontSize: "1.8em",
+              marginTop: "0.2em",
+            }}
+          >
             <FaBriefcase />
           </span>
-          <b> Work Experience</b>
-        </h2>
-        <div style={{ padding: "15px" }}>
-          <h3>Edduus</h3>
-          <img
-            src={"Images/edduus.png"}
-            height="40px"
-            width="40px"
-            title="Edduus"
-            alt="edduus"
-          ></img>
-          <h5 style={{ marginTop: "0.5em" }}>
-            Founding Full Stack Engineer (Remote)
-          </h5>
-          <h5 style={{ color: `rgb(${color})` }}>
-            <span>
-              <FaCalendarAlt />
-            </span>{" "}
-            May 2022 - Present
-          </h5>
-          <ul className="bullet-point">
-            <li>
-              Co-found and developed a cross-platform educational mobile
-              application that encourages users to join learning communities to
-              interact with like-minded individuals. Main features include live
-              streaming, Q/A posting with{" "}
-              <b style={{ color: `rgb(${color})` }}>AI </b> assistant using{" "}
-              <b style={{ color: `rgb(${color})` }}>OpenAI</b>, articles, video
-              uploading, and real-time messaging.
-            </li>
-            <li>
-              Implemented a real-time chat interface in{" "}
-              <b style={{ color: `rgb(${color})` }}>React Native</b> and{" "}
-              <b style={{ color: `rgb(${color})` }}>Firebase</b> for
-              notifications which allows users to communicate with one another
-              within the application.
-            </li>
-            <li>
-              Constructed an elegant, responsive and accessible{" "}
-              <b style={{ color: `rgb(${color})` }}>React.js</b>{" "}
-              <b style={{ color: `rgb(${color})` }}>SaaS </b>
-              platform with a small development team for community
-              administrators to manage data and create learning contents for
-              users manually or with{" "}
-              <b style={{ color: `rgb(${color})` }}>AI </b> assistant using{" "}
-              <b style={{ color: `rgb(${color})` }}>OpenAI</b>.
-            </li>
-          </ul>
+          <h1 style={{ color: "white", fontSize: "2rem" }}>Work Experience</h1>
+        </div>
+        <div style={{ ...card, marginTop: "1em" }}>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "0.5em" }}
+          >
+            <h3
+              style={{
+                marginTop: "0.5em",
+                color: "white",
+                fontSize: "1.5rem",
+              }}
+            >
+              Full Stack Engineer (Remote)
+            </h3>
+            <img
+              src={"Images/edduus.png"}
+              height="40px"
+              width="40px"
+              title="Edduus"
+              alt="edduus"
+            ></img>
+            <h5 style={{ fontSize: "1.25rem" }}>Edduus</h5>
+            <h3 style={{ color: `#6291f5` }}>
+              <span>
+                <FaCalendarAlt />
+              </span>{" "}
+              Sep 2020 - Present
+            </h3>
+          </div>
 
-          <h5 style={{ marginTop: "0.5em" }}>
-            Backend Software Engineer (Remote)
-          </h5>
-          <h5 style={{ color: `rgb(${color})` }}>
-            <span>
-              <FaCalendarAlt />
-            </span>{" "}
-            Sep 2020 - May 2022
-          </h5>
-          <ul className="bullet-point">
-            <li>
-              Utilized an <b style={{ color: `rgb(${color})` }}>MVC</b>{" "}
-              (Model-View-Controller) software design for various server-side
-              operations using <b style={{ color: `rgb(${color})` }}>Node.js</b>
-              , <b style={{ color: `rgb(${color})` }}>PHP</b> that connects to{" "}
-              <b style={{ color: `rgb(${color})` }}>PostgreSQL </b>
-              and No-SQL <b style={{ color: `rgb(${color})` }}>MongoDB</b>{" "}
-              resulting in code reusability and improved maintenance across all
-              applications.
-            </li>
-            <li>
-              Deep understanding of system tools such as{" "}
-              <b style={{ color: `rgb(${color})` }}>Git</b>,{" "}
-              <b style={{ color: `rgb(${color})` }}>Linux</b>,{" "}
-              <b style={{ color: `rgb(${color})` }}>NGINX</b> and{" "}
-              <b style={{ color: `rgb(${color})` }}>Stripe</b> API platform.
-            </li>
-            <li>
-              Traversed across all levels of code stack and produce efficient
-              solutions for complex problems.
-            </li>
-          </ul>
+          <p className={styles.regular}>
+            Architected and launched a cross-platform{" "}
+            <b style={{ color: `#6291f5` }}>React Native</b> mobile application
+            for real-time peer collaboration through adaptive learning
+            materials, a responsive{" "}
+            <b style={{ color: `#6291f5` }}>React.js SaaS</b> dashboard for
+            content management, and a{" "}
+            <b style={{ color: `#6291f5` }}>Node.js</b>/
+            <b style={{ color: `#6291f5` }}>Stripe</b>-integrated monetization
+            infrastructure that empowers creators to launch subscription-based
+            learning communities, host live streams, and commercialize their
+            expertise.
+          </p>
+        </div>
+      </div>
 
-          <hr></hr>
-
-          <h3>Ultimo Software Solutions, Inc.</h3>
+      <div style={{ ...card, marginTop: "1em" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.5em" }}>
+          <h3
+            style={{
+              marginTop: "0.5em",
+              color: "white",
+              fontSize: "1.5rem",
+            }}
+          >
+            Software Engineer Intern
+          </h3>
           <img
             src={"Images/ultimo.png"}
             height="40px"
@@ -104,43 +108,26 @@ const Experience: React.FC<colorProps> = ({ color }) => {
             title="UltimoSoft"
             alt="ultimo"
           ></img>
-          <h5 style={{ marginTop: "0.5em" }}>Software Engineer Intern</h5>
-          <h5 style={{ color: `rgb(${color})` }}>
+          <h5 style={{ fontSize: "1.25rem" }}>
+            Ultimo Software Solutions, Inc.
+          </h5>
+          <h3 style={{ color: `#6291f5` }}>
             <span>
               <FaCalendarAlt />
             </span>{" "}
             Jan 2020 - Mar 2020
-          </h5>
-          <ul className="bullet-point">
-            <li>
-              Learned techniques of Software Integrations by using{" "}
-              <b style={{ color: `rgb(${color})` }}>MuleSoft </b>
-              to implement API flows that connect different web services (
-              <b style={{ color: `rgb(${color})` }}>REST</b>,{" "}
-              <b style={{ color: `rgb(${color})` }}>SOAP</b>) with various
-              systems and databases (mainly{" "}
-              <b style={{ color: `rgb(${color})` }}>MySQL</b>).
-            </li>
-            <li>
-              Utilized <b style={{ color: `rgb(${color})` }}>DataWeave</b> to
-              transform API data into various content types such as{" "}
-              <b style={{ color: `rgb(${color})` }}>JSON</b> and{" "}
-              <b style={{ color: `rgb(${color})` }}>XML</b>
-            </li>
-            <li>
-              Connected, retrieved, and modfied data between{" "}
-              <b style={{ color: `rgb(${color})` }}>Java</b> client and{" "}
-              <b style={{ color: `rgb(${color})` }}>Oracle Netsuite</b>.
-            </li>
-            <li>
-              Used <b style={{ color: `rgb(${color})` }}>Salesforce</b> Platform
-              to create, connect, and modify data using Salesforce language of{" "}
-              <b style={{ color: `rgb(${color})` }}>Apex Code</b>,{" "}
-              <b style={{ color: `rgb(${color})` }}>SOQL</b>, and{" "}
-              <b style={{ color: `rgb(${color})` }}>SOSL</b>.
-            </li>
-          </ul>
+          </h3>
         </div>
+
+        <p className={styles.regular}>
+          Engineered data pipelines connecting{" "}
+          <b style={{ color: `#6291f5` }}>Java</b> clients with{" "}
+          <b style={{ color: `#6291f5` }}>Oracle NetSuite</b>, while designing{" "}
+          <b style={{ color: `#6291f5` }}>MuleSoft</b> API flows and DataWeave
+          transformations to bridge backend systems with{" "}
+          <b style={{ color: `#6291f5` }}>REST/SOAP</b> web services and{" "}
+          <b style={{ color: `#6291f5` }}>MySQL</b> databases.
+        </p>
       </div>
     </div>
   );

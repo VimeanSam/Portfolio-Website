@@ -1,0 +1,96 @@
+.navbar {
+  width: 100%;
+  background-color: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navContainer {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #6291f5;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #d4d4d8;
+  margin-left: 20px;
+}
+
+/* Hide hamburger button on desktop */
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: #d4d4d8;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.navLinks a:hover {
+  cursor: pointer;
+  color: gray;
+}
+
+/* --- Mobile Layout (Under 768px) --- */
+@media screen and (max-width: 768px) {
+  .menuToggle {
+    display: flex; /* Shows hamburger button */
+  }
+
+  .navLinks {
+    display: none; /* Hides links by default */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Sits directly below the navbar */
+    left: 0;
+    background-color: #000000;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navLinks a {
+    margin: 15px 0;
+    text-align: center;
+    margin-left: 0; /* Override desktop margin */
+  }
+
+  /* Active class to display menu when clicked */
+  .activeLinks {
+    display: flex;
+  }
+
+  /* Morph hamburger into an 'X' when active */
+  .activeToggle .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .activeToggle .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .activeToggle .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}

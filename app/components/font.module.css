@@ -1,0 +1,56 @@
+.jumbo {
+  font-size: 81px;
+  font-weight: 600;
+}
+
+.big {
+  font-size: 48px;
+}
+
+.medium {
+  font-size: 32px;
+}
+
+.regular {
+  font-size: 18px;
+}
+
+.typer {
+  color: #6291f5 !important;
+  font-weight: 300 !important;
+}
+
+@media (max-width: 500px) {
+  .jumbo {
+    font-size: 64px;
+  }
+
+  .big {
+    font-size: 32px;
+  }
+  .regular {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .jumbo {
+    font-size: 48px;
+  }
+  .medium {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 300px) {
+  .jumbo {
+    font-size: 32px;
+  }
+
+  .big {
+    font-size: 24px;
+  }
+  .medium {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,36 @@
+/* Container inside the card */
+.inner-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 1. Mobile Default: Full-width stacked list items */
+.inner-grid-item {
+  flex: 0 0 100%;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 12px;
+  padding: 0.7em;
+  min-height: 20px;
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* 2. Tablet Viewport: Switches into a 2-column layout */
+@media (min-width: 480px) and (max-width: 768px) {
+  .inner-grid-item {
+    /* Subtracts exactly half of the 12px gap space for 2 columns */
+    flex: 0 0 calc(50% - (12px / 2));
+  }
+}
+
+/* 3. Desktop Viewport: Switches into the 3x3 layout */
+@media (min-width: 768px) {
+  .inner-grid-item {
+    /* Subtracts two-thirds of total gap space for 3 columns */
+    flex: 0 0 calc(33.333% - (24px / 3));
+  }
+}

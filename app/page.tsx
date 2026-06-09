@@ -1,23 +1,19 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Banner from "./components/Banner";
-import Info from "./components/Info";
+import About from "./components/About";
 import Experience from "./components/Experience";
-import Education from "./components/Education";
 import Projects from "./components/Projects";
 import { Lightbox } from "yet-another-react-lightbox";
 import { Zoom } from "yet-another-react-lightbox/plugins";
 
 import "yet-another-react-lightbox/styles.css";
+import Navbar from "./components/Navbar/NavBar";
+import Welcome from "./components/Welcome";
+import Skills from "./components/Skills";
 
 export default function Home() {
-  useEffect(() => {
-    tick();
-  }, []);
-
   const [data, setData] = useState({
-    variant: "",
-    backgroundImg: "",
     greet: "",
   });
 
@@ -35,26 +31,107 @@ export default function Home() {
   const [pinchZoomDistanceFactor, setPinchZoomDistanceFactor] = useState(100);
   const [scrollToZoom, setScrollToZoom] = useState(false);
 
+  //sections
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+
+  //animation
+  const [visibleSections, setVisibleSections] = useState<{
+    [key: string]: boolean;
+  }>({});
+
+  useEffect(() => {
+    tick();
+  }, []);
+
+  useEffect(() => {
+    if (loaded) {
+      // 3. Set up the observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute("id");
+              if (id) {
+                // Mark section as visible
+                setVisibleSections((prev) => ({ ...prev, [id]: true }));
+                // Stop observing this section so animation only runs once
+                observer.unobserve(entry.target);
+              }
+            }
+          });
+        },
+        { threshold: 0.1 }, // Triggers when 10% of the section is visible
+      );
+
+      // 4. Observe all your section elements
+      const targets = [
+        aboutRef.current,
+        experienceRef.current,
+        projectRef.current,
+        skillsRef.current,
+      ];
+      targets.forEach((target) => {
+        if (target) observer.observe(target);
+      });
+
+      return () => observer.disconnect();
+    }
+  }, [loaded]);
+
+  const scrollTo = (where: string) => {
+    switch (where) {
+      case "about":
+        if (aboutRef.current) {
+          aboutRef.current?.scrollIntoView({
+            behavior: "smooth", // Animates the scroll smoothly
+            block: "start", // Aligns the top of the element to the top of the viewport
+          });
+        }
+        break;
+      case "experience":
+        if (experienceRef.current) {
+          experienceRef.current?.scrollIntoView({
+            behavior: "smooth", // Animates the scroll smoothly
+            block: "start", // Aligns the top of the element to the top of the viewport
+          });
+        }
+        break;
+      case "projects":
+        if (projectRef.current) {
+          projectRef.current?.scrollIntoView({
+            behavior: "smooth", // Animates the scroll smoothly
+            block: "start", // Aligns the top of the element to the top of the viewport
+          });
+        }
+        break;
+      case "skills":
+        if (skillsRef.current) {
+          skillsRef.current?.scrollIntoView({
+            behavior: "smooth", // Animates the scroll smoothly
+            block: "start", // Aligns the top of the element to the top of the viewport
+          });
+        }
+        break;
+    }
+  };
+
   const tick = () => {
     var getdate = new Date();
     var currentTime = getdate.getHours();
     if (currentTime < 12) {
       setData({
-        variant: "191,98,4",
         greet: "Good Morning,",
-        backgroundImg: "Images/sfmorning.jpg",
       });
     } else if (currentTime < 18) {
       setData({
-        variant: "4,129,191",
         greet: "Good Afternoon,",
-        backgroundImg: "/Images/sfday.jpg",
       });
     } else {
       setData({
-        variant: "0,32,96",
         greet: "Good Evening,",
-        backgroundImg: "/Images/sf.jpg",
       });
     }
     setLoaded(true);
@@ -65,21 +142,55 @@ export default function Home() {
     setSlides(slides);
   };
 
+  console.log(visibleSections);
+
   return loaded ? (
     <>
-      <Banner bannerImage={data.backgroundImg} greet={data.greet} />
-      <div className="portfolioContainer">
-        <div className="cardContainer">
-          <Info color={data.variant} />
-          <div className="column-3">
-            <Experience color={data.variant} />
-            <br></br>
-            <Education color={data.variant} />
-            <br></br>
-            <Projects color={data.variant} setSlideshow={setSlideshow} />
-          </div>
-        </div>
-      </div>
+      <Navbar scrollTo={scrollTo} />
+      <main style={{ marginTop: "68px" }}>
+        <section
+          id="home"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+          className="fade-animation"
+        >
+          <Welcome greet={data.greet} />
+        </section>
+
+        <section
+          id="about"
+          ref={aboutRef}
+          className={visibleSections.about ? "fade-animation" : "hidden"}
+        >
+          <About />
+        </section>
+
+        <section
+          id="experience"
+          ref={experienceRef}
+          className={visibleSections.experience ? "fade-animation" : "hidden"}
+        >
+          <Experience />
+        </section>
+
+        <section
+          id="projects"
+          ref={projectRef}
+          className={visibleSections.projects ? "fade-animation" : "hidden"}
+        >
+          <Projects setSlideshow={setSlideshow} />
+        </section>
+
+        <section
+          id="skills"
+          ref={skillsRef}
+          className={visibleSections.skills ? "fade-animation" : "hidden"}
+        >
+          <Skills />
+        </section>
+      </main>
       {open && (
         <Lightbox
           open={open}
@@ -110,7 +221,7 @@ export default function Home() {
       <br></br>
       <footer>
         <br></br>
-        <p style={{ fontSize: "19px" }}>
+        <p>
           Simple static portfolio website created by Vimean Sam using Next.js
           TypeScript and powered by Vercel
         </p>

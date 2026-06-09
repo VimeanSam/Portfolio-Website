@@ -1,0 +1,25 @@
+/* The Parent Container */
+.projectContainer {
+  display: flex;
+  gap: 1em;
+}
+
+/* The Child Elements */
+.side {
+  flex: 30%; /* Don't grow, don't shrink, exact 30% width */
+}
+
+.main {
+  flex: 70%; /* Don't grow, don't shrink, exact 70% width */
+}
+
+/* Responsive Breakpoint for Mobile */
+@media (max-width: 700px) {
+  .image,
+  .main-content {
+    flex: 100%; /* Stacks both columns to full width on small screens */
+  }
+  .projectContainer {
+    flex-direction: column;
+  }
+}
