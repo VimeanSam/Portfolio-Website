@@ -17,24 +17,28 @@ body {
     "Helvetica Neue",
     Arial,
     sans-serif;
-  position: relative; /* Anchors the pseudo-element */
+  position: relative;
 }
 
-/* The fixed background layer */
+/* The updated bulletproof fixed background layer */
 body::before {
   content: "";
   position: fixed;
+  /* Use absolute inset edges instead of 100vw/100dvh */
   top: 0;
+  bottom: 0;
   left: 0;
-  width: 100vw;
-  /* Use svh (small viewport height) to safely manage mobile address bars */
-  height: 100dvh;
-  background-image: url("/Images/background.jpg"); /* Next.js serves public folder from root / */
+  right: 0;
+
+  background-image: url("/Images/background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: -1; /* Pushes the image behind all text and sections */
-  will-change: transform; /* Boosts mobile rendering performance */
+  z-index: -1;
+
+  /* Forces browser hardware acceleration to smooth out mobile stutter */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 html {
