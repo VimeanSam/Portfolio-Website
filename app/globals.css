@@ -2,30 +2,39 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  height: 100%;
+}
+
 body {
   height: 100%;
   margin: 0;
-  background-image: url("../public/Images/background.jpg");
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
   font-family:
     system-ui,
     -apple-system,
     "Segoe UI",
     Roboto,
     "Helvetica Neue",
-    "Noto Sans",
-    "Liberation Sans",
     Arial,
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
+    sans-serif;
+  position: relative; /* Anchors the pseudo-element */
+}
+
+/* The fixed background layer */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* Use svh (small viewport height) to safely manage mobile address bars */
+  height: 100dvh;
+  background-image: url("/Images/background.jpg"); /* Next.js serves public folder from root / */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1; /* Pushes the image behind all text and sections */
+  will-change: transform; /* Boosts mobile rendering performance */
 }
 
 html {
