@@ -25,17 +25,11 @@ body {
 body::before {
   content: "";
   position: fixed;
-
-  /* Standard boundaries */
-  left: 0;
-  right: 0;
   top: 0;
-
-  /* Force the element to stretch past the URL bar into the hardware safe zone */
-  bottom: calc(0px - env(safe-area-inset-bottom, 0px));
-
-  /* Slightly scale up the height boundary container to avoid URL bar dead zones */
-  height: calc(100% + env(safe-area-inset-bottom, 0px));
+  left: 0;
+  width: 100vw;
+  /* Use dvh to automatically handle iOS URL bars */
+  height: 100dvh;
 
   background-image: url("/Images/background.jpg");
   background-position: center center;
@@ -43,7 +37,7 @@ body::before {
   background-size: cover;
   z-index: -1;
 
-  /* Hardware acceleration switches to keep rendering stable during URL bar collapsing */
+  /* Keeps rendering smooth on iOS */
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
