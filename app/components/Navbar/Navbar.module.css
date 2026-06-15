@@ -43,10 +43,16 @@
 
 .bar {
   height: 3px;
-  width: 100%;
+  width: 24px; /* Sticks to the safe, even pixel width */
   background-color: #d4d4d8;
   border-radius: 10px;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  will-change: transform, opacity;
+
+  /* Move origin 2px inward to account for the heavy border-radius curve */
+  transform-origin: 2px center;
 }
 
 .navLinks a:hover {
@@ -85,12 +91,16 @@
 
   /* Morph hamburger into an 'X' when active */
   .activeToggle .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    /* Minor adjustment to perfectly center the cross on Safari */
+    transform: translate3d(0, 1px, 0) rotate(45deg);
   }
+
   .activeToggle .bar:nth-child(2) {
     opacity: 0;
   }
+
   .activeToggle .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    /* Minor adjustment to perfectly center the cross on Safari */
+    transform: translate3d(0, -1px, 0) rotate(-45deg);
   }
 }

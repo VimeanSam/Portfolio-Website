@@ -197,7 +197,6 @@ const Projects: React.FC<projectProps> = ({ setSlideshow }) => {
           marginTop: "1em",
           width: "100%",
           maxWidth: "1024px",
-          padding: "0 1em",
         }}
       >
         <div
